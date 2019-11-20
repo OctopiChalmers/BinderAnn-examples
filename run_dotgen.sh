@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd dotgen && stack exec dotgen-test
+cd dotgen && stack build && stack exec dotgen-test

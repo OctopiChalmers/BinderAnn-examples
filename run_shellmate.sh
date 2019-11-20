@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cd shellmate && stack exec shellmate-test
+cd shellmate && stack build && stack exec shellmate-test

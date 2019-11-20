@@ -1,0 +1,6 @@
+*.hi
+*.o
+testInterfaces
+remLine
+generateBounds
+ci
