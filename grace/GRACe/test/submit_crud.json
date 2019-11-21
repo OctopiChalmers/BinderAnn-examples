@@ -1,0 +1,77 @@
+{
+    "nodes": [
+        {
+            "name": "simple pump",
+            "parameters": [
+                {
+                    "value": 5,
+                    "name": "capacity",
+                    "type": "Int"
+                }
+            ],
+            "interface": [
+                {
+                    "connection": [
+                        3,
+                        "outlet",
+                        null
+                    ],
+                    "name": "inflow",
+                    "type": "Int"
+                },
+                {
+                    "name": "outflow",
+                    "type": "Int"
+                }
+            ],
+            "identity": 1
+        },
+        {
+            "name": "rain",
+            "parameters": [
+                {
+                    "value": 10,
+                    "name": "amount",
+                    "type": "Int"
+                }
+            ],
+            "interface": [
+                {
+                    "connection": [
+                        3,
+                        "inflow",
+                        null
+                    ],
+                    "name": "rainfall",
+                    "type": "Int"
+                }
+            ],
+            "identity": 2
+        },
+        {
+            "name": "simple runoff area",
+            "parameters": [
+                {
+                    "value": 7,
+                    "name": "storage capacity",
+                    "type": "Int"
+                }
+            ],
+            "interface": [
+                {
+                    "name": "inflow",
+                    "type": "Int"
+                },
+                {
+                    "name": "outlet",
+                    "type": "Int"
+                },
+                {
+                    "name": "overflow",
+                    "type": "Int"
+                }
+            ],
+            "identity": 3
+        }
+    ]
+}

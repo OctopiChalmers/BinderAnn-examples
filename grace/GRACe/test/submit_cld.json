@@ -1,0 +1,123 @@
+{
+    "nodes": [
+        {
+            "name": "node",
+            "parameters": [
+                {
+                    "name": "obsSign",
+                    "value": 1,
+                    "type": "Maybe Sign"
+                },
+                {
+                    "name": "numIn",
+                    "value": 0,
+                    "type": "Int"
+                }
+            ],
+            "interface": [
+                {
+                    "name": "outSign",
+                    "type": "Sign"
+                }
+            ],
+            "identity": 1
+        },
+        {
+            "name": "node",
+            "parameters": [
+                {
+                    "name": "obsSign",
+                    "value": -1,
+                    "type": "Maybe Sign"
+                },
+                {
+                    "name": "numIn",
+                    "value": 0,
+                    "type": "Int"
+                }
+            ],
+            "interface": [
+                {
+                    "name": "outSign",
+                    "type": "Sign"
+                }
+            ],
+            "identity": 2
+        },
+        {
+            "name": "node",
+            "parameters": [
+                {
+                    "name": "obsSign",
+                    "value": null,
+                    "type": "Maybe Sign"
+                },
+                {
+                    "name": "numIn",
+                    "value": 2,
+                    "type": "Int"
+                }
+            ],
+            "interface": [
+                {   "name": "influences",
+                    "type": "[Sign]"
+                },
+                {
+                    "name": "outSign",
+                    "type": "Sign"
+                }
+            ],
+            "identity": 3
+        },
+       {
+            "name": "plus arrow",
+            "parameters": [],
+            "interface": [
+                {
+                    "connection": [
+                        2,
+                        "outSign",
+                        null
+                    ],
+                    "name": "fromNode",
+                    "type": "Sign"
+                },
+                {
+                    "connection": [
+                        3,
+                        "influences",
+                        1
+                    ],
+                    "name": "toNode",
+                    "type": "Sign"
+                }
+            ],
+            "identity": 4
+       },
+        {
+            "name": "minus arrow",
+            "parameters": [],
+            "interface": [
+                {
+                    "connection": [
+                        1,
+                        "outSign",
+                        null
+                    ],
+                    "name": "fromNode",
+                    "type": "Sign"
+                },
+                {
+                    "connection": [
+                        3,
+                        "influences",
+                        0
+                    ],
+                    "name": "toNode",
+                    "type": "Sign"
+                }
+            ],
+            "identity": 5
+        }
+    ]
+}

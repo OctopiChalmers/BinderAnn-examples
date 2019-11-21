@@ -1,0 +1,14 @@
+*.~lock*
+*.sw*
+*.o
+*.hi
+*.mzn
+*.ozn
+*.fzn
+*~
+.stack-work/
+dist/
+cabal.sandbox.config
+.cabal-sandbox
+model.fzn
+model.ozn

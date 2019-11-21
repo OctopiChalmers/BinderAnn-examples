@@ -1,0 +1,23 @@
+*.swo
+*.swp
+
+# Hackage specific
+# Documentation
+htmldocs/*
+
+# My notes
+helper_dir/*
+
+# Cabal
+.cabal-sandbox/
+cabal.sandbox.config
+dist
+
+# MiniZinc models and results
+*.mzn
+*.dzn
+*.fzn
+*.results.txt
+
+# Local specific
+HZconf/conf.txt

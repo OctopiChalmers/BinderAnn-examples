@@ -1,0 +1,29 @@
+flags: {}
+extra-package-dbs: []
+packages:
+- '.'
+
+extra-deps:
+- aeson-1.1.0.0
+- hint-0.7.0
+- http-api-data-0.3.5
+- parsec-numbers-0.1.0
+- parsec3-1.0.1.8
+- servant-0.10
+- servant-server-0.10
+- ../haskelzinc
+- git: https://github.com/OctopiChalmers/BinderAnn.git
+  commit: de3b814597a4b533a0365b8b96841bb8d27e761e
+
+resolver: lts-14.7
+allow-newer: true
+
+# Build inside Docker container
+#docker:
+#  enable: true
+
+# Generate Docker images
+#image:
+#  container:
+#    base: 'eugraceful/stack-run'
+#    name: 'eugraceful/grace'

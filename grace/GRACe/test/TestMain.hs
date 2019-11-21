@@ -1,0 +1,55 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+module Main where
+
+
+import Control.Concurrent (threadDelay)
+import Control.Exception (catch)
+import System.Exit (ExitCode)
+import Test.Tasty (defaultMain, testGroup, TestTree)
+import Test.Tasty.HUnit
+import System.Process
+import System.FilePath (replaceExtension)
+
+import TestFW.TestGCMCheck (tests)
+
+main :: IO ()
+main = do
+    -- Setup
+    server <- spawnProcess "stack" ["exec", "--", "GRACeServer", "-l", "libraries"]
+    threadDelay 10000000  -- wait a second for the server to get started
+
+    -- Test
+    defaultMain (testGroup "Test all"
+      [ TestFW.TestGCMCheck.tests
+      , serviceTests
+      ]) `catch` \(e :: ExitCode) -> return ()
+
+    -- Teardown
+    terminateProcess server
+
+serviceTests = testGroup "Unit tests"
+  [ testService "libraries" [] "test/libraries.exp"
+  , testService "library/cld"  [] "test/library_cld.exp"
+  , testService "library/crud" [] "test/library_crud.exp"
+  , testSubmit "crud" "test/submit_crud.json"
+  , testSubmit "cld" "test/submit_newcld.json"
+  , testSubmit "cld" "test/submit_xcld.json"
+  , testSubmit "cld" "test/submit_xcld2.json"
+  , testSubmit "cld" "test/submit_shcld.json"
+  , testSubmit "fullgcm" "test/submit_d3_2.json"
+  ]
+
+testSubmit :: String -> FilePath -> TestTree
+testSubmit lib input = testService ("submit/" ++ lib) flags exp
+ where
+  flags = [ "-H", "Content-Type: application/json"
+          ,  "--data", '@' : input ]
+  exp   = replaceExtension input "exp"
+
+testService :: String -> [String] -> FilePath -> TestTree
+testService endpoint options file = testCase ("Testing: " ++ file) $ do
+    out <- readProcess "curl" (options ++ ["-s", url]) ""
+    exp <- readFile file
+    out @?= exp
+  where
+    url = "http://localhost:8081/" ++ endpoint

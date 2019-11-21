@@ -1,0 +1,207 @@
+name:                GRACe
+version:             0.1.2.3
+-- synopsis:
+-- description:
+license:             BSD3
+license-file:        LICENSE
+author:              Maximilian Algehed, Alex Gerdes, Sólrún Einarsdóttir, Oskar Abrahamsson, Patrik Jansson.
+maintainer:          algehed@chalmers.se
+-- copyright:
+-- category:
+build-type:          Simple
+extra-source-files:  Readme.md
+cabal-version:       >=1.10
+
+-- GRACe DSL
+library
+  exposed-modules:
+    CP,
+    GCM,
+    TestFW.GCMP,
+    TestFW.GCMCheck,
+    Compile,
+    Compile0,
+    Compile1,
+    Types,
+    Utils,
+    Library,
+    GRACeGraph,
+    Sign,
+    CLDlib,
+    Crud,
+    CrudProperties,
+    Actions,
+    Criteria
+
+  other-modules:
+    TestFW.GenT,
+    Program
+  other-extensions:
+    GADTs,
+    FlexibleInstances,
+    UndecidableInstances,
+    RankNTypes,
+    ScopedTypeVariables,
+    LambdaCase
+  build-depends:
+      base
+    , process
+    , mtl
+    , parsec
+    , parsec-numbers
+    , QuickCheck
+    , random
+    , transformers
+    , containers
+    , text
+    , aeson
+    , bytestring
+    , haskelzinc
+    , scientific
+    , vector           
+    , BinderAnn
+  hs-source-dirs:
+    src,
+    RestAPI,
+    libraries             
+  default-language:
+    Haskell2010
+
+-- executable GRACeServer
+--   main-is:
+--     Main.hs
+--   other-modules:
+--       GRACeGraph
+--     , Service
+--     , Submit
+--   build-depends:
+--       GRACe
+--     , base
+--     , aeson >= 1.1
+--     , aeson-pretty
+--     , bytestring
+--     , containers
+--     , GRACe
+--     , lucid
+--     , mtl
+--     , process
+--     , scientific
+--     , servant-server
+--     , servant-lucid
+--     , text
+--     , vector
+--     , wai-extra
+--     , warp
+--     , haskelzinc
+--     , hint >= 0.7.0 && <0.8.0
+--     , directory
+--     , filepath
+--     , optparse-applicative
+--   hs-source-dirs:
+--     RestAPI
+--   default-language:
+--     Haskell2010
+
+-- test-suite test
+--   type:
+--     exitcode-stdio-1.0
+--   main-is:
+--     TestMain.hs
+--   other-modules:
+--     TestFW.TestGCMCheck
+-- 
+--   build-depends:
+--     base             >= 4.9  && <4.10,
+--     GRACe            >= 0.1  && <0.2,
+--     tasty            >= 0.11 && <0.12,
+--     tasty-hunit      >= 0.9  && <0.10,
+--     tasty-quickcheck >= 0.8  && <0.9,
+--     QuickCheck       >= 2.8,
+--     HUnit            >= 1.3,
+--     parsec           >= 3.1  && <3.2,
+--     parsec-numbers   >= 0.1  && <0.2,
+--     process          >= 1.4  && <1.5,
+--     filepath                        ,
+--     containers
+--   hs-source-dirs:
+--     test
+--   default-language:
+--     Haskell2010
+
+executable SomeExamples
+  main-is:
+    Main.hs
+  build-depends:
+    base,
+    QuickCheck,
+    GRACe,
+    BinderAnn
+  hs-source-dirs:
+    examples
+  default-language:
+    Haskell2010
+  other-modules:
+    Examples,
+    SmallExample
+
+executable TestingUserCode
+  main-is:
+    TestingUserCode.hs
+  build-depends:
+    base,
+    QuickCheck,
+    unordered-containers,
+    split,
+    process,
+    aeson,
+    bytestring,
+    text,
+    GRACe
+  hs-source-dirs:
+    examples
+  default-language:
+    Haskell2010
+
+executable Biodiesel
+  main-is:
+    Biodiesel.hs
+  build-depends:
+    base,
+    GRACe
+  hs-source-dirs:
+    examples
+  default-language:
+    Haskell2010
+
+executable OilCrops
+  main-is:
+    OilCrops.hs
+  build-depends:
+    base,
+    GRACe
+  hs-source-dirs:
+    examples
+  default-language:
+    Haskell2010
+
+executable TestLibraries
+  main-is:
+    TestLibraries.hs
+  build-depends:
+    base,
+    GRACe
+  hs-source-dirs:
+    test
+  default-language:
+    Haskell2010
+
+-- Trivial (build) test framework
+Executable GRACe-test
+  build-depends:       base   >= 3 && < 5,
+                       GRACe,
+                       BinderAnn
+
+  hs-source-dirs:      test
+  Main-is:             Test.hs
+  ghc-options:         -Wall
+
