@@ -417,7 +417,7 @@ render' = unlines . map clean . lines . P.render
 ----------------------------------------
 -- Annotation support
 
-instance Annotated SrcInfo SBVCodeGen (SBV a) where
+instance AnnotatedM SBVCodeGen (SBV a) where
   annotateM ma (Info Nothing _)   = ma
   annotateM ma (Info (Just nm) _) = do
     og_s <- get
@@ -430,7 +430,7 @@ instance Annotated SrcInfo SBVCodeGen (SBV a) where
                 in s { cgInputs = (nm, x) : tail (cgInputs s) }
               | otherwise = s
 
-instance Annotated SrcInfo SBVCodeGen () where
+instance AnnotatedM SBVCodeGen () where
   annotateM ma (Info Nothing _)   = ma
   annotateM ma (Info (Just nm) _) = do
     og_s <- get
@@ -442,6 +442,3 @@ instance Annotated SrcInfo SBVCodeGen () where
                 let (_ , x) = head (cgOutputs s)
                 in s { cgOutputs = (nm, x) : tail (cgOutputs s) }
               | otherwise = s
-
-
-

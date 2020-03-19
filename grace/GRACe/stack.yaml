@@ -12,8 +12,7 @@ extra-deps:
 - servant-0.10
 - servant-server-0.10
 - ../haskelzinc
-- git: https://github.com/OctopiChalmers/BinderAnn.git
-  commit: de3b814597a4b533a0365b8b96841bb8d27e761e
+- url: https://github.com/OctopiChalmers/BinderAnn/archive/master.zip
 
 resolver: lts-14.7
 allow-newer: true

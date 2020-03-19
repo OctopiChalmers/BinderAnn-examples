@@ -29,7 +29,7 @@ resolver: lts-14.7
 #   subdirs:
 #   - auto-update
 #   - wai
-packages: 
+packages:
 - .
 
 # The following packages have been ignored due to incompatibility with the
@@ -49,8 +49,7 @@ packages:
 extra-deps:
 - temporary-1.2.1.1
 extra-deps:
-- git: https://github.com/OctopiChalmers/BinderAnn.git
-  commit: de3b814597a4b533a0365b8b96841bb8d27e761e
+- url: https://github.com/OctopiChalmers/BinderAnn/archive/master.zip
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

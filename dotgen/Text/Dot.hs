@@ -59,7 +59,7 @@ instance Show NodeId where
 
 type NodeInfo = M.Map NodeId SrcInfo
 
-instance Annotated SrcInfo Dot NodeId where
+instance AnnotatedM Dot NodeId where
   annotateM (Dot ma) i = Dot $ \n ->
     let (xs, uq, info, a) = ma n
     in (xs, uq, M.insert a i info, a)

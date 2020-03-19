@@ -54,19 +54,19 @@ packages:
   original:
     hackage: servant-server-0.10
 - completed:
+    size: 21896
+    url: https://github.com/OctopiChalmers/BinderAnn/archive/master.zip
     cabal-file:
       size: 1839
       sha256: a7b0c442ec90695d60bcfeaeba2960b0b33a3acbfd598c777dd2863dcb967622
     name: BinderAnn
     version: 0.1.0.0
-    git: https://github.com/OctopiChalmers/BinderAnn.git
+    sha256: 3ca46423af798597bd62a5674119ed9d8f6a07cc5d1b4d0ac07bcca1fd491c2e
     pantry-tree:
-      size: 2425
-      sha256: db2b023f697aa629dd1b00e14f06e66105b21f8ab8a28e924cf1a6c90d6c820e
-    commit: de3b814597a4b533a0365b8b96841bb8d27e761e
+      size: 1560
+      sha256: 9c1c91759f82b84caba035f14dbe51675bad8f2161fcdea66aae886e44e439ad
   original:
-    git: https://github.com/OctopiChalmers/BinderAnn.git
-    commit: de3b814597a4b533a0365b8b96841bb8d27e761e
+    url: https://github.com/OctopiChalmers/BinderAnn/archive/master.zip
 snapshots:
 - completed:
     size: 523700

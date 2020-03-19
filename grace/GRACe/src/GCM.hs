@@ -228,7 +228,6 @@ instance IsVar Goal where
 -- Annotations support
 --
 
-instance Annotated SrcInfo (Port a) where
+instance Annotated (Port a) where
   annotate (Port (v, _)) (Info mbnm _) =
     Port (v, mbnm)
-

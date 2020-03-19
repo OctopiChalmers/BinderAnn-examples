@@ -93,7 +93,7 @@ shell m = do
 
 shell' :: Shell a -> IO a
 shell' m = do
-  res <- shell m 
+  res <- shell m
   case res of
     Right a -> return a
     Left (Failure msg []) -> error msg
@@ -101,15 +101,16 @@ shell' m = do
       [
       case loc of
         Nothing -> ""
-        Just (file, r, c) -> 
-          "Exception raised at " ++ file ++"(" ++ show r ++ "," ++ show c ++ "):\n", 
-      case nm of 
+        Just (file, r, c) ->
+          "\n\nException raised at " ++ file ++"(" ++ show r ++ "," ++ show c ++ "):\n",
+      case nm of
         Nothing -> ""
         Just name -> "The value " ++ "\"" ++ name ++ "\" produced the following error:\n",
-      msg
+      msg,
+      "\n"
       ]
 
-instance Annotated SrcInfo Shell a where
+instance AnnotatedM Shell a where
   annotateM ma info = Tag [info] ma
 
 

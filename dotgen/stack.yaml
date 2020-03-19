@@ -30,6 +30,7 @@ resolver: lts-14.7
 #   - wai
 packages:
 - .
+
 # Dependency packages to be pulled from upstream that are not in the resolver.
 # These entries can reference officially published versions as well as
 # forks / in-progress versions pinned to a git hash. For example:
@@ -40,8 +41,7 @@ packages:
 #   commit: e7b331f14bcffb8367cd58fbfc8b40ec7642100a
 #
 extra-deps:
-- git: http://github.com/OctopiChalmers/BinderAnn.git
-  commit: de3b814597a4b533a0365b8b96841bb8d27e761e
+- url: https://github.com/OctopiChalmers/BinderAnn/archive/master.zip
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
